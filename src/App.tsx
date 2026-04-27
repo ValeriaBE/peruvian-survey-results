@@ -1,10 +1,7 @@
-import { useState } from 'react'
 import InfoVotingChart from "./components/InfoVotingChart";
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <main className="container">
