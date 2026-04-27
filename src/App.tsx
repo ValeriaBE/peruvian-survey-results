@@ -1,4 +1,5 @@
 import InfoVotingChart from "./components/InfoVotingChart";
+import SourcesChart from "./components/SourcesChart";
 import './App.css'
 
 function App() {
@@ -28,6 +29,20 @@ function App() {
 
         <div className="chart-wrap">
           <InfoVotingChart />
+        </div>
+      </section>
+      <section className="section-card">
+        <div className="section-header">
+          <h2>Social media was a major source of election information.</h2>
+          <p>
+            Respondents could select multiple sources, so this chart counts
+            mentions rather than unique respondents. It helps show the fragmented
+            information environment Peruvians in the U.S. relied on.
+          </p>
+        </div>
+
+        <div className="chart-wrap">
+          <SourcesChart />
         </div>
       </section>
     </main>
