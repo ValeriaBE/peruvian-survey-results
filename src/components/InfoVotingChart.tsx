@@ -107,18 +107,18 @@ export default function InfoVotingChart() {
                 .attr("height", (d) => y(d.segment[0]) - y(d.segment[1]))
                 .attr("width", x.bandwidth())
                 .style("cursor", "pointer")
-                .on("mouseenter", function (d) {
-                    d3.select(this).attr("opacity", 0.78);
+                .on("mouseenter", function (event, d) {
+  d3.select(this).attr("opacity", 0.78);
 
-                    d3.select(tooltipRef.current)
-                        .style("opacity", "1")
-                        .html(`
-              <div class="tooltip-title">${d.informed}</div>
-              <div><strong>${d.voted}</strong></div>
-              <div>${d.count} respondents</div>
-              <div>${d3.format(".1%")(d.percent)}</div>
-            `);
-                })
+  d3.select(tooltipRef.current)
+    .style("opacity", "1")
+    .html(`
+      <div class="tooltip-title">${d.informed}</div>
+      <div><strong>${d.voted}</strong></div>
+      <div>${d.count} respondents</div>
+      <div>${d3.format(".1%")(d.percent)}</div>
+    `);
+})
                 .on("mousemove", function (event) {
                     const container = containerRef.current;
                     if (!container) return;
