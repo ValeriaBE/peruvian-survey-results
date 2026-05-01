@@ -117,6 +117,7 @@ export default function DifficultyVotingChart() {
                 .attr("fill", COLOR_MAP.No)
                 .style("cursor", "pointer")
                 .on("mouseenter", function (event, d) {
+                    console.log(event);
                     d3.select(this).attr("opacity", 0.75);
 
                     d3.select(tooltipRef.current)
@@ -154,6 +155,7 @@ export default function DifficultyVotingChart() {
                 .attr("fill", COLOR_MAP.Yes)
                 .style("cursor", "pointer")
                 .on("mouseenter", function (event, d) {
+                    console.log(event);
                     d3.select(this).attr("opacity", 0.75);
 
                     d3.select(tooltipRef.current)

@@ -108,6 +108,7 @@ export default function InfoVotingChart() {
                 .attr("width", x.bandwidth())
                 .style("cursor", "pointer")
                 .on("mouseenter", function (event, d) {
+                    console.log(event);
                     d3.select(this).attr("opacity", 0.78);
 
                     d3.select(tooltipRef.current)

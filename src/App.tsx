@@ -2,10 +2,8 @@ import InfoVotingChart from "./components/InfoVotingChart";
 import SourcesChart from "./components/SourcesChart";
 import TrustVotingDotPlot from "./components/TrustVotingDotPlot";
 import DifficultyVotingChart from "./components/DifficultyVotingChart";
-import BarrierEffectChart from "./components/BarrierEffectChart";
 import MiniBarChart from "./components/MiniBarChart";
 import GenderPieChart from "./components/GenderPieChart";
-import BarrierDivergingChart from "./components/BarrierDivergingChart";
 import BarrierGroupedChart from "./components/BarrierGroupedChart";
 import './App.css'
 

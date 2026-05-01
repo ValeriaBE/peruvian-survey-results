@@ -72,6 +72,7 @@ export default function BarrierEffectChart() {
                 .attr("fill", "#d91023")
                 .style("cursor", "pointer")
                 .on("mouseenter", function (event, d) {
+                    console.log(event);
                     d3.select(this).attr("opacity", 0.75);
 
                     d3.select(tooltipRef.current)

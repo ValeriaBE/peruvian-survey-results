@@ -124,6 +124,7 @@ export default function BarrierDivergingChart() {
                 .attr("fill", (d) => (d.difference < 0 ? "#f4c7b9" : "#d91023"))
                 .style("cursor", "pointer")
                 .on("mouseenter", function (event, d) {
+                    console.log(event);
                     d3.select(this).attr("opacity", 0.75);
 
                     d3.select(tooltipRef.current)

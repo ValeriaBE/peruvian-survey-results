@@ -97,6 +97,7 @@ export default function TrustVotingDotPlot() {
                 .attr("stroke-width", 1)
                 .style("cursor", "pointer")
                 .on("mouseenter", function (event, d) {
+                    console.log(event);
                     d3.select(this).attr("r", 13);
 
                     d3.select(tooltipRef.current)
