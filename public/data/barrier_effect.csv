@@ -1,10 +1,10 @@
-category,vote_rate,n
-Did not vote / unable to vote,0.04113110539845758,389
-Distance / polling location,0.4032697547683924,367
-Easy / smooth process,0.65,60
-ID / eligibility,0.08133971291866028,209
-Lack of clear information about candidates,0.4444444444444444,45
-Lack of clear information on voting,0.2,50
-Lines / waiting,0.7115384615384616,52
-Other,0.17110266159695817,263
-Time / scheduling,0.2727272727272727,66
+category,vote_rate,n,overall_rate
+Did not vote / unable to vote,0.04113110539845758,389,0.21601804850535816
+Distance / polling location,0.4032697547683924,367,0.21601804850535816
+Easy / smooth process,0.65,60,0.21601804850535816
+ID / eligibility,0.08133971291866028,209,0.21601804850535816
+Lack of clear information about candidates,0.4444444444444444,45,0.21601804850535816
+Lack of clear information on voting,0.2,50,0.21601804850535816
+Lines / waiting,0.7115384615384616,52,0.21601804850535816
+Other,0.17110266159695817,263,0.21601804850535816
+Time / scheduling,0.2727272727272727,66,0.21601804850535816
