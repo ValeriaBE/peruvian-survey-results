@@ -229,6 +229,7 @@ function App() {
           </div>
           <div className="chart-wrap">
             <BarrierGroupedChart />
+            <p className="topline-note">Note: Each bar shows the share of respondents within that category who reported voting.</p>
           </div>
           <div className="quotes-grid">
             <div className="quote-card">

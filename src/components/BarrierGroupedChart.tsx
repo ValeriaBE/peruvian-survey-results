@@ -12,8 +12,7 @@ const BARRIERS = [
     "Distance / polling location",
     "Time / scheduling",
     "Lack of clear information on voting",
-    "Lack of clear information about candidates",
-    "Did not vote / unable to vote",
+    "Lack of clear information about candidates"
 ];
 
 const EXPERIENCES = [
@@ -157,7 +156,7 @@ export default function BarrierGroupedChart() {
                 .attr("font-size", 15)
                 .attr("font-weight", 800)
                 .attr("fill", "#1f1f1f")
-                .text("Percent who voted");
+                .text("Percent who voted within each response category");
         });
     }, []);
 
