@@ -224,9 +224,9 @@ function App() {
           <div className="section-header">
             <h2>Structural barriers were linked to lower participation.</h2>
             <p>
-              This chart compares each open-ended response category to the overall voting
-              rate. Categories to the left had lower-than-average voting rates, while
-              categories to the right were more common among respondents who voted.
+              Open-ended responses showed two different kinds of answers: barriers that may
+              have prevented participation, and experiences reported by people who were able
+              to vote.
             </p>
           </div>
           <div className="chart-wrap">
