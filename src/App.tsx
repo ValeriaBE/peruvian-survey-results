@@ -5,6 +5,8 @@ import DifficultyVotingChart from "./components/DifficultyVotingChart";
 import BarrierEffectChart from "./components/BarrierEffectChart";
 import MiniBarChart from "./components/MiniBarChart";
 import GenderPieChart from "./components/GenderPieChart";
+import BarrierDivergingChart from "./components/BarrierDivergingChart";
+import BarrierGroupedChart from "./components/BarrierGroupedChart";
 import './App.css'
 
 function App() {
@@ -14,8 +16,8 @@ function App() {
         <div className="nav-brand">Peruvian Voters in the U.S. 🇵🇪</div>
         <div className="nav-links">
           <a href="#goal">Goal</a>
-          <a href="#toplines">Toplines</a>
           <a href="#demographics">Sample</a>
+          <a href="#toplines">Toplines</a>
           <a href="#findings">Findings</a>
           <a href="#barriers">Barriers</a>
           <a href="#takeaways">Takeaways</a>
@@ -30,37 +32,78 @@ function App() {
           </p>
         </section>
         <section id="goal" className="goal-section">
-  <div className="goal-content">
-    <div className="goal-left">
-      <span className="section-kicker">Research Goal</span>
-      <h2>
-        How information access and barriers shape political participation
-        among Peruvians in the U.S.
-      </h2>
-    </div>
+          <div className="goal-content">
+            <div className="goal-left">
+              <span className="section-kicker">Research Goal</span>
+              <h2>
+                How information access and barriers shape political participation
+                among Peruvians in the U.S.
+              </h2>
+            </div>
 
-    <div className="goal-right">
-      <div className="goal-point">
-        <strong>Information access</strong>
-        <p>How voters navigate limited and uneven sources</p>
-      </div>
+            <div className="goal-right">
+              <div className="goal-point">
+                <strong>Information access</strong>
+                <p>How voters navigate limited and uneven sources</p>
+              </div>
 
-      <div className="goal-point">
-        <strong>Trust in sources</strong>
-        <p>Confidence in social media, news, and official channels</p>
-      </div>
+              <div className="goal-point">
+                <strong>Trust in sources</strong>
+                <p>Confidence in social media, news, and official channels</p>
+              </div>
 
-      <div className="goal-point">
-        <strong>Barriers to voting</strong>
-        <p>Distance, logistics, and eligibility challenges</p>
-      </div>
-    </div>
-  </div>
-  <p className="goal-sub">
-  This study focuses on how diaspora voters experience elections differently
-  from those within Peru.
-</p>
-</section>
+              <div className="goal-point">
+                <strong>Barriers to voting</strong>
+                <p>Distance, logistics, and eligibility challenges</p>
+              </div>
+            </div>
+          </div>
+          <p className="goal-sub">
+            This study focuses on how diaspora voters experience elections differently
+            from those within Peru.
+          </p>
+        </section>
+        <section className="section-card demographics-section" id="demographics">
+          <div className="section-header">
+            <h2>Who responded?</h2>
+            <p>
+              The survey sample was concentrated among younger respondents and people
+              living in a few U.S. states, so the findings should be read as exploratory
+              rather than representative.
+            </p>
+          </div>
+
+          <div className="demo-stats">
+            <div className="demo-stat">
+              <span className="demo-label">Sample size</span>
+              <strong>2,201</strong>
+              <p>survey responses</p>
+            </div>
+
+            <div className="demo-stat">
+              <span className="demo-label">Largest age group</span>
+              <strong>18-24</strong>
+              <p>young Peruvians were central to the sample</p>
+            </div>
+
+            <div className="demo-stat">
+              <span className="demo-label">Top state</span>
+              <strong>Florida</strong>
+              <p>one of the strongest response locations</p>
+            </div>
+          </div>
+
+          <div className="demo-chart-row">
+            <div>
+              <h3>Gender</h3>
+              <GenderPieChart />
+            </div>
+            <div>
+              <h3>Education</h3>
+              <MiniBarChart file="demo_education.csv" labelColumn="education" maxItems={4} size="large" />
+            </div>
+          </div>
+        </section>
         <section className="section-card topline-section" id="toplines">
           <div className="section-header">
             <h2>Survey Questions & Topline Results</h2>
@@ -117,47 +160,6 @@ function App() {
               <p className="topline-note">
                 Percentages are among respondents who answered the open-ended question.
               </p>
-            </div>
-          </div>
-        </section>
-        <section className="section-card demographics-section" id="demographics">
-          <div className="section-header">
-            <h2>Who responded?</h2>
-            <p>
-              The survey sample was concentrated among younger respondents and people
-              living in a few U.S. states, so the findings should be read as exploratory
-              rather than representative.
-            </p>
-          </div>
-
-          <div className="demo-stats">
-            <div className="demo-stat">
-              <span className="demo-label">Sample size</span>
-              <strong>2,201</strong>
-              <p>survey responses</p>
-            </div>
-
-            <div className="demo-stat">
-              <span className="demo-label">Largest age group</span>
-              <strong>18-24</strong>
-              <p>young Peruvians were central to the sample</p>
-            </div>
-
-            <div className="demo-stat">
-              <span className="demo-label">Top state</span>
-              <strong>Florida</strong>
-              <p>one of the strongest response locations</p>
-            </div>
-          </div>
-
-          <div className="demo-chart-row">
-            <div>
-              <h3>Gender</h3>
-              <GenderPieChart />
-            </div>
-            <div>
-              <h3>Education</h3>
-              <MiniBarChart file="demo_education.csv" labelColumn="education" maxItems={4} />
             </div>
           </div>
         </section>
@@ -222,47 +224,48 @@ function App() {
           <div className="section-header">
             <h2>Structural barriers were linked to lower participation.</h2>
             <p>
-              Structural barriers such as distance and eligibility issues were associated with lower participation. In contrast, responses describing the voting experience—such as long lines or a smooth process—primarily came from those who were able to vote.
+              This chart compares each open-ended response category to the overall voting
+              rate. Categories to the left had lower-than-average voting rates, while
+              categories to the right were more common among respondents who voted.
             </p>
           </div>
-
           <div className="chart-wrap">
-            <BarrierEffectChart />
-            <div className="quotes-grid">
-              <div className="quote-card">
-                <p>"I have to drive about 3.5 hours to get to the voting place which means a trip of 7 hours in 1 day."</p>
-                <span>Distance / polling location</span>
-              </div>
+            <BarrierGroupedChart />
+          </div>
+          <div className="quotes-grid">
+            <div className="quote-card">
+              <p>"I have to drive about 3.5 hours to get to the voting place which means a trip of 7 hours in 1 day."</p>
+              <span>Distance / polling location</span>
+            </div>
 
-              <div className="quote-card">
-                <p>"I couldn’t vote because I don’t have Peruvian citizenship."</p>
-                <span>ID / eligibility</span>
-              </div>
+            <div className="quote-card">
+              <p>"I couldn’t vote because I don’t have Peruvian citizenship."</p>
+              <span>ID / eligibility</span>
+            </div>
 
-              <div className="quote-card">
-                <p>"There were 35 candidates. It’s hard to be well informed about all of them"</p>
-                <span>Lack of clear information about candidates</span>
-              </div>
-              <div className="quote-card">
-                <p>"What made it difficult is knowing the information about how, when, and where to vote."</p>
-                <span>Lack of clear information on voting</span>
-              </div>
-              <div className="quote-card">
-                <p>"I work long hour shifts in a hospital including weekends"</p>
-                <span>Time / scheduling</span>
-              </div>
-              <div className="quote-card">
-                <p>"Excessive wait times for voting"</p>
-                <span>Lines / waiting</span>
-              </div>
-              <div className="quote-card">
-                <p>"Super fast, no issues, it was in and out"</p>
-                <span>Easy / smooth process</span>
-              </div>
-              <div className="quote-card">
-                <p>"If the gestapo (ICE) wasn’t running rampant where I live."</p>
-                <span>Other</span>
-              </div>
+            <div className="quote-card">
+              <p>"There were 35 candidates. It’s hard to be well informed about all of them"</p>
+              <span>Lack of clear information about candidates</span>
+            </div>
+            <div className="quote-card">
+              <p>"What made it difficult is knowing the information about how, when, and where to vote."</p>
+              <span>Lack of clear information on voting</span>
+            </div>
+            <div className="quote-card">
+              <p>"I work long hour shifts in a hospital including weekends"</p>
+              <span>Time / scheduling</span>
+            </div>
+            <div className="quote-card">
+              <p>"Excessive wait times for voting"</p>
+              <span>Lines / waiting</span>
+            </div>
+            <div className="quote-card">
+              <p>"Super fast, no issues, it was in and out"</p>
+              <span>Easy / smooth process</span>
+            </div>
+            <div className="quote-card">
+              <p>"If the gestapo (ICE) wasn’t running rampant where I live."</p>
+              <span>Other</span>
             </div>
           </div>
         </section>
@@ -309,26 +312,66 @@ function App() {
             </div>
           </div>
         </section>
+        <section className="methodology-section">
+          <h3>About the data</h3>
+
+          <div className="method-grid">
+            <div>
+              <strong>Sample</strong>
+              <p>
+                2,201 Peruvians living in the United States, with responses
+                concentrated among younger participants and women.
+              </p>
+            </div>
+
+            <div>
+              <strong>Collection</strong>
+              <p>
+                The survey was distributed online through social networks,
+                including TikTok and outreach to Peruvian communities and
+                influencers in the U.S.
+              </p>
+            </div>
+
+            <div>
+              <strong>Analysis</strong>
+              <p>
+                Open-ended responses were coded into mutually exclusive categories based on
+                their primary theme, such as barriers to access, information gaps,
+                or descriptions of the voting process.
+              </p>
+            </div>
+
+            <div>
+              <strong>Limitations</strong>
+              <p>
+                The sample is not representative and likely reflects a more
+                digitally engaged audience, with potential bias toward younger
+                respondents and those active on social media.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
-<footer className="site-footer">
-  <span className="footer-name">Valeria Berrocal</span>
+      <footer className="site-footer">
+        <span className="footer-name">Valeria Berrocal</span>
 
-  <div className="footer-links">
-    <a href="https://github.com/ValeriaBE" target="_blank" title="GitHub">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58 0-.28-.01-1.02-.02-2-3.34.72-4.04-1.61-4.04-1.61-.55-1.38-1.34-1.75-1.34-1.75-1.1-.75.08-.74.08-.74 1.22.08 1.86 1.25 1.86 1.25 1.08 1.85 2.84 1.32 3.53 1.01.11-.79.42-1.32.76-1.63-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.25-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.12 3.17.78.84 1.25 1.91 1.25 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.82 1.1.82 2.22 0 1.6-.01 2.89-.01 3.28 0 .32.22.69.83.57C20.57 21.79 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
-      </svg>
-    </a>
+        <div className="footer-links">
+          <a href="https://github.com/ValeriaBE" target="_blank" title="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58 0-.28-.01-1.02-.02-2-3.34.72-4.04-1.61-4.04-1.61-.55-1.38-1.34-1.75-1.34-1.75-1.1-.75.08-.74.08-.74 1.22.08 1.86 1.25 1.86 1.25 1.08 1.85 2.84 1.32 3.53 1.01.11-.79.42-1.32.76-1.63-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.25-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.12 3.17.78.84 1.25 1.91 1.25 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.82 1.1.82 2.22 0 1.6-.01 2.89-.01 3.28 0 .32.22.69.83.57C20.57 21.79 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
 
-    <a href="https://www.linkedin.com/in/valeria-b-egusquiza/" target="_blank" title="LinkedIn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20.45 20.45h-3.55v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7H9.32V9h3.41v1.56h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.39 4.3 5.5v6.24zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06s.92-2.06 2.06-2.06 2.06.92 2.06 2.06-.92 2.06-2.06 2.06zm1.78 13.02H3.56V9h3.56v11.45z"/>
-      </svg>
-    </a>
-  </div>
+          <a href="https://www.linkedin.com/in/valeria-b-egusquiza/" target="_blank" title="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.45 20.45h-3.55v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7H9.32V9h3.41v1.56h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.39 4.3 5.5v6.24zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06s.92-2.06 2.06-2.06 2.06.92 2.06 2.06-.92 2.06-2.06 2.06zm1.78 13.02H3.56V9h3.56v11.45z" />
+            </svg>
+          </a>
+        </div>
 
-  <span className="footer-year">© 2026</span>
-</footer>
+        <span className="footer-year">© 2026</span>
+      </footer>
     </>
   )
 }

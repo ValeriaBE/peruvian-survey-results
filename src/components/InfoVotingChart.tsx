@@ -19,9 +19,9 @@ const INFORMED_ORDER = [
 const VOTED_ORDER = ["Yes", "No", "Prefer not to say"];
 
 const COLOR_MAP: Record<string, string> = {
-  Yes: "#d91023",
-  No: "#f4c7b9",
-  "Prefer not to say": "#b9855b",
+    Yes: "#d91023",
+    No: "#f4c7b9",
+    "Prefer not to say": "#b9855b",
 };
 
 export default function InfoVotingChart() {
@@ -108,17 +108,17 @@ export default function InfoVotingChart() {
                 .attr("width", x.bandwidth())
                 .style("cursor", "pointer")
                 .on("mouseenter", function (event, d) {
-  d3.select(this).attr("opacity", 0.78);
+                    d3.select(this).attr("opacity", 0.78);
 
-  d3.select(tooltipRef.current)
-    .style("opacity", "1")
-    .html(`
+                    d3.select(tooltipRef.current)
+                        .style("opacity", "1")
+                        .html(`
       <div class="tooltip-title">${d.informed}</div>
       <div><strong>${d.voted}</strong></div>
       <div>${d.count} respondents</div>
       <div>${d3.format(".1%")(d.percent)}</div>
     `);
-})
+                })
                 .on("mousemove", function (event) {
                     const container = containerRef.current;
                     if (!container) return;
