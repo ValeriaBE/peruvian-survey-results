@@ -468,7 +468,7 @@
   opacity: 0.9;
 }
 .goal-section {
-  background: linear-gradient(180deg, #fff7ed 0%, #fff1ec 100%);
+  background: white;
   border-radius: 28px;
   padding: 2.5rem;
   margin-top: 2rem;
